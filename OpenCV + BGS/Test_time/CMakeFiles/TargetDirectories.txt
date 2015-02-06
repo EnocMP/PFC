@@ -1,0 +1,3 @@
+/home/enoc/projecte/OpenCV&BGS/BGS_Impl1/CMakeFiles/bgs.dir
+/home/enoc/projecte/OpenCV&BGS/BGS_Impl1/CMakeFiles/bgs_bin.dir
+/home/enoc/projecte/OpenCV&BGS/BGS_Impl1/CMakeFiles/output.dir
