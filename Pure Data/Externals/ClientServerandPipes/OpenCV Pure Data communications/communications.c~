@@ -1,0 +1,155 @@
+#include "m_pd.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+
+#define PIPE 1
+#define BANG 1
+
+/***************************CLASS DECLARATION***************************/
+
+static t_class *proximity_class; //create proximity class
+const char *path = "/home/enoc/projecte/Background_Pipe/Com";
+//const char *path = "/home/enoc/projecte/BGS_Impl1/output";
+
+/***************************DATA SPACE***************************/
+//variables of the class
+typedef struct _proximity {
+	t_object x_obj; //object properties for PD environment
+	t_int channel; // pipe file descriptor
+	t_int buffer;
+	t_int pixels;
+	t_outlet *out;
+	
+} 
+t_proximity;
+
+
+/***************************METHODS***************************/
+void proximity_bang (t_proximity *x) {
+  int buffer=99, value=99, ret=99, channel;
+  post("            BANG");
+#if BANG
+  channel=x->channel;
+  ret=read(channel, &buffer, sizeof(int));
+  if (ret<0){
+    post("error PIPE, ret %d", ret);
+  }
+  else if(ret==0){
+    post("Bang, empty pipe", ret, buffer);
+  }
+  else{
+    value=buffer;
+    outlet_float(x->out, value);
+    post("Bang, read %d bytes, value %d", ret, buffer);
+  }
+#endif
+}
+
+/***************************CONSTRUCTOR***************************/
+
+void *proximity_new(	//Constructor function
+	t_symbol *s,	//Symbolic name used in the creation
+	int argc,	//Number of arguments passed to the object 
+	t_atom *argv) 
+		//the upper boundary and the step width
+{
+  //Opening the pipe
+  int ret, PID, newPID, fd[2], dataIn, dataOut, arg;
+  
+#if PIPE //if pipe>0 execute fork, exec and pipe
+  ret=pipe2(fd, O_NONBLOCK);
+  if(ret<0) post("error when piping, ret %d", ret);
+
+   post("fd[0]=%d, fd[1]=%d", fd[0], fd[1]);
+  
+  //fork 
+  PID=getpid();
+  if (fork()<0 ) perror("error while forking\n");
+  
+  else {
+  newPID=getpid();
+  }
+  
+  if (newPID!=PID) {//son to be mutated
+      printf("channel sent: %d\n", fd[1]);
+      //close(fd[1]);//closing writing end
+      arg=fd[1];
+      ret=execl(path, path, &arg, (void *)NULL);
+      printf("Mod Communication Exec Error\n");
+      exit (-1);
+  }
+  
+  //close(fd[1]); //closing reading end
+ #endif
+  t_proximity *x = (t_proximity *)pd_new(proximity_class); 	
+  // creates (casts) a new pointer to a t_proximity
+
+
+/*------------------------------------WARNING!!---------------------------------
+------------------
+The order of the generation of inlets (inlet_new) and outlets (outlet_new is 
+important, since it
+corresponds to the order of the inlets and outlets in the graphical 
+representation of the object!
+--------------------------------------------------------------------------------
+------------------*/
+	
+/*------------------------------------INLET 
+GENERATION--------------------------------------------------
+1- active means that a class method is called each time a message is sent to an 
+active inlet. The first
+inlet is always active. 
+2- the selector defined with the third argument is to be substituted with the 
+fourth argument selector.
+Because of this substitution of selectors a message on a certain right inlet 
+(bound in this case) 
+can be treated as a message with a certain selector on the leftmost inlet. This 
+means:
+	* The substituting selector has to be declared by class_method in the 
+setup-routine
+	* It is possible to simulate a certain right inlet, by sending a 
+message with this inlet's selector
+	  to the leftmost inlet
+	* It is not possible to add methods for more than one selector to a 
+right inlet. Particularly it is
+	  not possible to add a universal method for arbitrary selectors to a 
+right inlet.
+3 - Passive inlets allow parts of the data space-memory to be written directly 
+from the outside. 
+--------------------------------------------------------------------------------
+------------------*/
+
+	x->out = 		//object outlet field f_out
+		outlet_new(	//creates a new outlet and returns a pointeR
+		&x-> x_obj,	//pointer to the internal object
+		 &s_float);	//defines the output data type
+  x-> channel=fd[0];
+
+	return (void *)x;
+}
+
+
+/***************************SETUP***************************/
+
+void proximity_setup(void) {
+	proximity_class=class_new	//Create the new class
+		(gensym("proximity"),	//symbolic name of the class
+		(t_newmethod)proximity_new,//constructor (called when PD 
+					   //instantiates a new object)
+		0,			//destructor(never in this case)
+		sizeof(t_proximity),	//logic space of the object
+		CLASS_DEFAULT, 		//graphical representation of the object
+		0, 		//Variable number of inputs
+		0); 			//0 indicate the ending of the list
+
+	class_addbang(		//new method 
+		proximity_class, 	//belonging class
+		proximity_bang); 	//adding the bang method
+
+
+	//class_sethelpsymbol(proximity_class, gensym("help-proximity")); 
+//help location for the proximity class
+}
+

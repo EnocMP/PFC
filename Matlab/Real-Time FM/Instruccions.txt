@@ -1,0 +1,19 @@
+SineMod.fig / SineMod.m:
+aquest arxiu és que s'ha d'executar per tal de que el programa funcioni
+correctament. Es pot executar tant la funció SineMod.m com executar la 
+figura SineMod.fig perquè s'obri la interfície gràfica. Per tal de que
+comenci la reproducció d'audio s'ha de prémer el botó Play.
+
+
+sound.m:
+Captura els valors de les variables de la figura, crea els objectes
+necessaris per reproduir audio i controla el flux de dades.
+
+SineModObject:
+Aquest objecte calcula un vector (la llargada depèn directament de la
+variable samples) de punts corresponent a un sinus modulat per un altre
+sinus quan es crida la funció 'step'. La freqüència, el coeficient de 
+modulació la llargada del vector i l'offset de fase són paràmetres que
+es passen a l'objecte.
+
+Enoc Martínez 09/08/2014

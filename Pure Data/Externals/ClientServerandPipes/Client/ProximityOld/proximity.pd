@@ -1,0 +1,12 @@
+#N canvas 2262 686 450 300 10;
+#X obj 167 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 169 184 proximity;
+#X floatatom 169 213 5 0 0 0 - - -;
+#X obj 170 69 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 167 95 metro 1500;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;

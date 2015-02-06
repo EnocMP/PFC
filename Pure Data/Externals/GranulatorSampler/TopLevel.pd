@@ -1,0 +1,124 @@
+#N canvas 65 97 1215 368 10;
+#X obj 466 18 knob 32 32 0 100 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 511 18 knob 32 32 0 10 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 556 18 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X text 465 -2 100ms;
+#X text 514 -2 10ms;
+#X text 557 -3 1ms;
+#X obj 416 18 knob 32 32 0 1000 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#N canvas 830 500 450 300 add 0;
+#X obj 111 54 inlet;
+#X obj 186 53 inlet;
+#X obj 245 54 inlet;
+#X obj 304 55 inlet;
+#X obj 174 124 +;
+#X obj 301 117 +;
+#X obj 231 159 +;
+#X obj 232 200 outlet;
+#X obj 215 95 t;
+#X obj 362 91 t;
+#X obj 325 140 t;
+#X connect 0 0 4 0;
+#X connect 1 0 4 1;
+#X connect 1 0 8 0;
+#X connect 2 0 5 0;
+#X connect 3 0 5 1;
+#X connect 3 0 9 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 1;
+#X connect 5 0 10 0;
+#X connect 6 0 7 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X restore 329 53 pd add;
+#X text 412 1 1000ms;
+#X obj 61 66 bng 20 250 50 0 empty empty Load_Sample 23 10 0 10 -260097
+-1 -1;
+#X obj 61 91 openpanel;
+#X obj 61 138 soundfiler;
+#X msg 61 114 read -resize \$1 Sample;
+#X floatatom 61 163 10 0 0 0 - - -;
+#X obj 264 256 output~;
+#X obj 416 90 knob 32 32 0.01 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X text 410 70 Density;
+#X obj 466 90 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 3100 1;
+#X text 460 70 Transient;
+#X obj 532 92 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 286 209 GranulatorAbs~ Sample;
+#X obj 841 8 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 861 6 Gaussian;
+#X text 860 21 Linear;
+#X text 859 37 Square;
+#X text 859 51 Root;
+#X floatatom 310 161 10 0 0 0 - - -;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array Sample 100902 float 2;
+#X coords 0 1 100902 -1 200 140 1;
+#X restore 632 3 graph;
+#X msg 211 167 On;
+#X msg 243 167 Off;
+#X msg 61 184 samples \$1;
+#X obj 841 77 s \$0Wave;
+#X obj 449 192 r \$0Wave;
+#X obj 635 145 hsl 195 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 5900 1;
+#X floatatom 632 183 5 0 0 0 - - -;
+#X obj 632 215 *;
+#X obj 14 210 s \$0samples;
+#X obj 671 198 r \$0samples;
+#X floatatom 632 237 15 0 0 0 - - -;
+#X obj 850 141 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 1000 1;
+#X text 841 107 Position Randomness;
+#X msg 632 261 StartSample \$1;
+#X obj 776 303 s \$0Grain;
+#X obj 175 225 r \$0Grain;
+#X text 525 69 Length Randomness;
+#X msg 850 183 PositionRan \$1;
+#X msg 881 274 RanControl \$1;
+#X obj 881 226 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 881 248 5 0 0 0 - - -;
+#X connect 0 0 7 1;
+#X connect 1 0 7 2;
+#X connect 2 0 7 3;
+#X connect 6 0 7 0;
+#X connect 7 0 26 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 30 0;
+#X connect 13 0 36 0;
+#X connect 15 0 20 2;
+#X connect 17 0 20 3;
+#X connect 19 0 20 4;
+#X connect 20 0 14 0;
+#X connect 20 0 14 1;
+#X connect 21 0 31 0;
+#X connect 26 0 20 1;
+#X connect 28 0 20 0;
+#X connect 29 0 20 0;
+#X connect 30 0 20 0;
+#X connect 32 0 20 5;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 35 0 38 0;
+#X connect 37 0 35 1;
+#X connect 38 0 41 0;
+#X connect 39 0 45 0;
+#X connect 41 0 42 0;
+#X connect 43 0 20 0;
+#X connect 45 0 42 0;
+#X connect 46 0 42 0;
+#X connect 47 0 48 0;
+#X connect 48 0 46 0;

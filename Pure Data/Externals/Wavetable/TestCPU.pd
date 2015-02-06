@@ -1,0 +1,43 @@
+#N canvas 65 54 1215 746 10;
+#X obj 27 2 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 153 182 tabwrite~ array1;
+#X obj 97 -33 loadbang;
+#X obj 27 24 metro 100;
+#X msg 95 9 330;
+#X obj 27 -21 loadbang;
+#X text 272 -13 Sine;
+#X text 269 -5 Triangle;
+#X text 271 19 Square;
+#X obj 361 69 vradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 380 67 Sine;
+#X text 379 83 Triangle;
+#X text 379 99 Square;
+#X text 380 114 Saw;
+#X obj 27 52 s b;
+#X obj 322 7 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 154 160 r b;
+#X obj 384 -20 pddp/dsp;
+#X obj 274 144 wavetable~;
+#X obj 116 56 s~ f;
+#X obj 178 24 phasor~;
+#X obj 82 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 260 184 output~;
+#X obj 105 106 tabwrite~ array2;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 14 0;
+#X connect 4 0 19 0;
+#X connect 4 0 20 0;
+#X connect 5 0 0 0;
+#X connect 9 0 18 2;
+#X connect 16 0 1 0;
+#X connect 18 0 1 0;
+#X connect 18 0 22 0;
+#X connect 18 0 22 1;
+#X connect 20 0 19 0;
+#X connect 20 0 18 0;
+#X connect 20 0 23 0;
