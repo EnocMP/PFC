@@ -1,0 +1,78 @@
+#N canvas 65 102 1215 718 10;
+#X floatatom 118 188 5 0 0 0 - - -;
+#X obj 299 317 *~;
+#X obj 118 167 i 1;
+#X obj 57 212 expr~ $v1*$f2*(1+$f3);
+#X obj 299 247 wavetable~;
+#X obj 237 230 phasor~;
+#X obj 180 190 pow 2;
+#X obj 455 -12 Save Wave\$1;
+#X obj 456 9 Save Octave\$1;
+#X obj 457 29 Save Frequency\$1;
+#X obj 458 51 Save Phase\$1;
+#X obj 459 71 Save Feedback\$1;
+#X obj 459 94 Save Volume\$1;
+#X obj 460 114 Save On\$1;
+#X obj 118 142 r Octave\$1;
+#X obj 356 216 r On\$1;
+#X obj 355 278 r Volume\$1;
+#X obj 355 300 pow 2;
+#X obj 180 165 r Frequency\$1;
+#X obj 313 139 r Phase\$1;
+#X obj 341 193 r Wave\$1;
+#X obj 327 163 r Feedback\$1;
+#X obj 58 118 r~ FrequencyIn\$1;
+#X obj 0 0 cnv 15 350 100 empty ChangeColor\$1 Oscillator_\$1 160 12
+1 14 -24198 -33289 0;
+#X obj 131 44 knob 32 32 0 1 0 0 Frequency\$1 Frequency\$1Load empty
+0 -8 0 8 -262144 -1 -1 0 1;
+#X obj 180 45 knob 32 32 0 1 0 0 Phase\$1 Feedback\$1Load empty 0 -8
+0 8 -262144 -1 -1 0 1;
+#X obj 230 43 knob 32 32 0 0.5 0 0 Feedback\$1 Feedback\$1Load empty
+0 -8 0 8 -262144 -1 -1 0 1;
+#X text 182 76 Phase;
+#X text 221 75 Feedback;
+#X text 78 75 Octave;
+#X text 120 75 Frequency;
+#X obj 5 3 vradio 15 1 0 6 Wave\$1 Wave\$1Load empty 0 -8 0 10 -262144
+-1 -1 2;
+#X text 23 0 Sine;
+#X text 24 16 Triangle;
+#X text 24 33 Square;
+#X text 25 47 Saw;
+#X obj 83 44 knob 32 32 1 16 0 1 Octave\$1 Octave\$1Load empty 0 -8
+0 8 -262144 -1 -1 900 1;
+#X obj 322 11 tgl 15 1 On\$1 On\$1Load empty 17 7 0 10 -258113 -1 -1
+25.5639 25.5639;
+#X obj 284 44 knob 32 32 0 1 0 0 Volume\$1 Volume\$1Load empty 0 -8
+0 8 -262144 -1 -1 900 1;
+#X text 279 74 Volume;
+#X text 24 61 Gaussian;
+#X text 24 77 Noise;
+#X obj 610 273 s ChangeColor\$1;
+#X msg 610 245 color \$1 12 12;
+#X obj 610 212 + 13;
+#X obj 610 164 loadbang;
+#X obj 610 190 f \$1;
+#X obj 300 342 s~ OscillatorOut\$1;
+#X connect 0 0 3 1;
+#X connect 1 0 47 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 3 2;
+#X connect 14 0 2 0;
+#X connect 15 0 4 4;
+#X connect 16 0 17 0;
+#X connect 17 0 1 1;
+#X connect 18 0 6 0;
+#X connect 19 0 4 1;
+#X connect 20 0 4 3;
+#X connect 21 0 4 2;
+#X connect 22 0 3 0;
+#X connect 43 0 42 0;
+#X connect 44 0 43 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X coords 0 -1 1 1 350 100 2 0 0;

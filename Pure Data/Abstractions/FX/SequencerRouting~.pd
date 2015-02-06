@@ -1,0 +1,15 @@
+#N canvas 627 215 450 300 10;
+#X obj 88 49 inlet;
+#X obj 58 155 outlet;
+#X text 171 173 Velocity;
+#X text 52 170 Frequency;
+#X obj 88 73 s NoteIn\$1;
+#X obj 58 129 r SeqNoteOut\$1;
+#X obj 184 52 inlet;
+#X obj 185 74 s VelIn\$1;
+#X obj 170 123 r SeqVelOut\$1;
+#X obj 172 152 outlet;
+#X connect 0 0 4 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;

@@ -1,0 +1,13 @@
+#N canvas 765 243 589 373 10;
+#X obj 55 84 inlet~;
+#X obj 196 84 inlet~;
+#X obj 58 174 outlet~;
+#X obj 195 174 outlet~;
+#X obj 55 111 s~ ReverbInLeft\$1;
+#X obj 196 111 s~ ReverbInRight\$1;
+#X obj 59 151 r~ ReverbOutLeft\$1;
+#X obj 194 150 r~ ReverbOutRight\$1;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;

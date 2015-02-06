@@ -1,0 +1,69 @@
+#N canvas 65 54 1215 746 10;
+#X obj -141 81 Oscillator~ 1;
+#X obj 376 194 OscillatorRouting~ 1;
+#X msg 358 105 45;
+#X msg 586 354 0;
+#X msg 516 346 1;
+#X obj 486 402 *~;
+#X obj 459 436 output~;
+#X obj 376 150 mtof;
+#X msg 403 104 50;
+#X obj 674 90 cnv 15 315 260 empty empty LFO 20 12 0 14 -203904 -66577
+0;
+#X obj 715 154 metro 50;
+#X obj 715 124 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 715 189 f;
+#X obj 751 191 + 0.01;
+#X obj 714 216 cos;
+#X obj 784 120 knob 32 32 0 1 0 1 empty empty empty 0 -8 0 8 -262144
+-1 -1 1600 1;
+#X obj 714 238 expr $f1*0.5 +0.5;
+#X obj 831 222 knob 32 32 0 1 0 1 empty empty empty 0 -8 0 8 -262144
+-1 -1 1100 1;
+#X obj 784 164 expr 2*pow($f1 \, 2) + 0.01;
+#X obj 784 93 inlet;
+#X obj 831 192 inlet;
+#X text 824 91 Rate;
+#X text 878 186 Amount;
+#X obj 714 268 expr $f1*$f2 + $f3-$f2;
+#X obj 951 235 inlet;
+#X obj 844 304 spigot;
+#X obj 951 267 tgl 30 1 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X text 955 216 Toggle;
+#X obj 799 321 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 505 1;
+#X obj 878 229 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 1600 1;
+#X floatatom 653 230 5 0 0 0 - - -;
+#X obj 799 370 s Frequency1;
+#X obj 56 298 knob 32 32 0 127 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X msg 679 489 \; Frequency1Load color 1 1 1;
+#X connect 1 0 5 0;
+#X connect 2 0 7 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 1;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 1;
+#X connect 14 0 16 0;
+#X connect 15 0 18 0;
+#X connect 16 0 23 0;
+#X connect 17 0 23 1;
+#X connect 18 0 13 1;
+#X connect 19 0 15 0;
+#X connect 20 0 17 0;
+#X connect 23 0 25 0;
+#X connect 24 0 26 0;
+#X connect 25 0 28 0;
+#X connect 26 0 25 1;
+#X connect 28 0 31 0;
+#X connect 29 0 23 2;

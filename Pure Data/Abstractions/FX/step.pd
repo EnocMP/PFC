@@ -1,0 +1,507 @@
+#N canvas 65 54 1215 746 10;
+#X obj -213 7 cnv 15 270 380 empty empty Sequencer_Control 20 12 0
+14 -180205 -66577 0;
+#X obj -190 332 bng 15 250 50 0 seq1 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -174 331 bng 15 250 50 0 seq2 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -158 331 bng 15 250 50 0 seq3 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -144 331 bng 15 250 50 0 seq4 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -130 331 bng 15 250 50 0 seq5 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -115 331 bng 15 250 50 0 seq6 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -99 331 bng 15 250 50 0 seq7 empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -83 331 bng 15 250 50 0 seq8 empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -69 331 bng 15 250 50 0 seq9 empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -54 331 bng 15 250 50 0 seq10 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -38 331 bng 15 250 50 0 seq11 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -23 331 bng 15 250 50 0 seq12 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -9 331 bng 15 250 50 0 seq13 empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 6 332 bng 15 250 50 0 seq14 empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 22 332 bng 15 250 50 0 seq15 empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom -140 279 5 0 0 0 - - -;
+#X obj -206 331 bng 15 250 50 0 seq0 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -206 307 sel 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
+#X floatatom -112 142 5 0 0 0 - - -;
+#X obj -139 230 counter;
+#X obj -173 193 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -62 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -112 75 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -4160
+-1 -1 0 1;
+#X text -150 23 Rate;
+#X obj -139 208 metro;
+#X obj -140 255 % 16;
+#X obj -190 352 bng 15 250 50 0 SeqVol1 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -174 351 bng 15 250 50 0 SeqVol2 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -158 351 bng 15 250 50 0 SeqVol3 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -144 351 bng 15 250 50 0 SeqVol4 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -130 351 bng 15 250 50 0 SeqVol5 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -115 351 bng 15 250 50 0 SeqVol6 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -99 351 bng 15 250 50 0 SeqVol7 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -83 351 bng 15 250 50 0 SeqVol8 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -69 351 bng 15 250 50 0 SeqVol9 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -54 351 bng 15 250 50 0 SeqVol10 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -38 351 bng 15 250 50 0 SeqVol11 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -23 351 bng 15 250 50 0 SeqVol12 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -9 351 bng 15 250 50 0 SeqVol13 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 6 351 bng 15 250 50 0 SeqVol14 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 22 351 bng 15 250 50 0 SeqVol15 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -206 351 bng 15 250 50 0 SeqVol0 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -173 114 r SeqTgl;
+#X floatatom -149 73 5 0 0 0 - - SeqRate1r;
+#X floatatom -149 40 5 0 0 0 - SeqRate1s -;
+#X obj -149 56 save;
+#X obj -62 192 spigot;
+#X obj -29 170 r retrigger;
+#X obj -63 146 r noteIn;
+#X obj -112 117 expr 450*(1-$f1) + 50;
+#X msg -92 272 \; radio \$1;
+#X obj 684 173 cnv 15 130 100 empty empty Preset_Bank 20 12 0 14 -204786
+-66577 0;
+#X obj 694 233 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 725 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 694 256 PresetManagement;
+#X obj 785 196 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 689 216 Save;
+#X text 719 215 Load;
+#X obj -117 489 bng 15 250 50 0 empty +1 empty 17 7 0 10 -262144 -1
+-1;
+#X obj -92 489 bng 15 250 50 0 empty 0 empty 17 7 0 10 -262144 -1 -1
+;
+#X floatatom -67 486 3 0 0 0 - SeqVel0s -;
+#X floatatom -117 531 3 0 0 0 - - SeqNote0r;
+#X floatatom 20 201 5 0 0 0 - Stepss -;
+#X obj -18 238 i;
+#X obj 20 221 save;
+#X floatatom 20 244 5 0 0 0 - - Stepsr;
+#X floatatom -42 530 3 0 0 0 - - SeqVel0r;
+#X obj 69 192 cnv 15 400 200 empty empty Routing 20 12 0 14 -203904
+-66577 0;
+#X obj 79 309 spigot;
+#X obj 174 329 spigot;
+#X obj 112 264 r SeqTgl;
+#X obj 207 307 r SeqTgl;
+#X obj 112 287 != 1;
+#X obj 69 11 cnv 15 130 180 empty empty Ramp_Velocity 20 12 0 14 -232576
+-66577 0;
+#X obj 301 11 cnv 15 100 180 empty empty Toggle 20 12 0 14 -204800
+-66577 0;
+#X obj 106 103 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -4160
+-1 -1 0 1;
+#X floatatom 106 143 5 0 0 0 - - -;
+#X obj 333 100 tgl 30 1 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X obj 199 11 cnv 15 100 180 empty empty Steps 20 12 0 14 -262126 -66577
+0;
+#X obj 220 47 bng 15 250 50 0 empty steps+ empty 17 7 0 10 -262144
+-1 -1;
+#X obj 265 48 bng 15 250 50 0 empty steps- empty 17 7 0 10 -262144
+-1 -1;
+#X obj 220 124 nbx 5 14 -1e+37 1e+37 0 0 steps empty empty 0 -8 0 10
+-262144 -1 -1 8 256;
+#X obj 220 99 clip 0 16;
+#X floatatom 298 217 5 0 0 0 - SeqVol -;
+#X text 294 200 Volume;
+#X obj 298 262 line~ 0 0;
+#X obj 298 242 pack;
+#X obj 349 225 expr $f1*500+10;
+#X floatatom 174 216 5 0 0 0 - SeqNote -;
+#X text 172 200 Note;
+#X obj 106 166 s SeqRampVel;
+#X obj 349 200 r SeqRampVel;
+#X obj 299 322 spigot~;
+#X obj 374 329 spigot~;
+#X obj 375 304 sig~;
+#X obj 317 292 r SeqTgl;
+#X obj 413 303 r SeqTgl;
+#X obj 337 357 s~ SeqVel;
+#X obj 375 253 r Velocity;
+#X obj 160 385 bng 15 250 50 0 kp empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 536 243 450 300 steps 0;
+#X obj 186 172 + 1;
+#X obj 227 171 - 1;
+#X text 117 29 Seq7 Note;
+#X obj 126 54 inlet;
+#X obj 177 51 inlet;
+#X obj 132 85 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 87 175 save;
+#X obj 178 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 138 171 f 0;
+#X obj 108 211 outlet;
+#X obj 67 104 loadbang;
+#X msg 67 126 8;
+#X connect 0 0 8 1;
+#X connect 1 0 8 1;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 0 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 6 1 9 0;
+#X connect 7 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 0 1 0;
+#X connect 8 0 6 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X restore 220 75 pd steps;
+#X obj 126 348 mtof;
+#X floatatom 85 79 5 0 0 0 - - SeqJump1r;
+#X floatatom 85 46 5 0 0 0 - SeqJump1s -;
+#X obj 85 62 save;
+#X floatatom 312 75 5 0 0 0 - - SeqOn1r;
+#X floatatom 312 42 5 0 0 0 - SeqOn1s -;
+#X obj 312 58 save;
+#X obj 333 137 s SeqTgl;
+#X obj 105 385 s notes;
+#X obj 375 278 nbx 5 14 1 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 1 256;
+#X obj 174 269 +;
+#X obj 79 243 r noteIn;
+#X obj 189 243 r noteIn;
+#X obj 417 71 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 214 284 line 0 5;
+#X obj 176 293 pack;
+#X obj 415 133 expr $f1*400;
+#X obj 87 425 sel 0 1 2 3 4 5 6 7;
+#X floatatom -42 486 3 0 0 0 - - -;
+#X obj 484 348 cnv 15 450 250 empty empty Sequencer 20 12 0 14 -233017
+-66577 0;
+#X obj 496 396 hradio 21 1 0 16 empty radio empty 0 -8 0 10 -262130
+-1 -1 3;
+#X obj 497 476 vsl 15 80 0 1 0 0 SeqVel0s SeqVel0r empty 0 -9 0 10
+-262130 -1 -1 0 1;
+#X floatatom 497 422 3 0 0 0 - SeqNote0r -;
+#X obj 497 441 bng 15 250 50 0 +0 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 497 457 bng 15 250 50 0 0 empty empty 17 7 0 10 -204800 -1 -1
+;
+#X obj 839 410 knob 32 32 0 1 0 1 SeqRate1s SeqRate1r empty 0 -8 0
+8 -4160 -1 -1 0 1;
+#X obj 916 351 tgl 15 1 SeqOn1s SeqOn1r empty 17 7 0 10 -258113 -1
+-1 1 1;
+#X text 840 393 Rate;
+#X obj 881 408 knob 32 32 0 1 0 1 SeqJump1s SeqJump1r empty 0 -8 0
+8 -4160 -1 -1 0 1;
+#X text 870 391 Jump Time;
+#X obj 835 501 bng 15 250 50 0 steps+ empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 855 501 bng 15 250 50 0 steps- empty empty 17 7 0 10 -203904
+-1 -1;
+#X obj 837 480 nbx 2 14 -1e+37 1e+37 0 1 empty steps empty 0 -8 0 10
+-203904 -1 -1 8 256;
+#X text 831 461 Steps;
+#X obj 517 476 vsl 15 80 0 1 0 1 SeqVol SeqVol1 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 518 422 3 0 0 0 - seq1 SeqNote;
+#X obj 517 441 bng 15 250 50 0 +1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 517 457 bng 15 250 50 0 -1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 539 478 vsl 15 80 0 1 0 1 SeqVol SeqVol2 empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X floatatom 539 422 3 0 0 0 - seq2 SeqNote;
+#X obj 539 441 bng 15 250 50 0 +2 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 539 457 bng 15 250 50 0 -2 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 559 476 vsl 15 80 0 1 0 0 SeqVol SeqVol3 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 560 422 3 0 0 0 - seq3 SeqNote;
+#X obj 559 441 bng 15 250 50 0 +3 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 559 457 bng 15 250 50 0 -3 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 581 476 vsl 15 80 0 1 0 1 SeqVol SeqVol4 empty 0 -9 0 10 -262130
+-1 -1 7900 1;
+#X floatatom 581 422 3 0 0 0 - seq4 SeqNote;
+#X obj 581 441 bng 15 250 50 0 +4 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 581 457 bng 15 250 50 0 -4 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 601 476 vsl 15 80 0 1 0 0 SeqVol SeqVol5 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 602 422 3 0 0 0 - seq5 SeqNote;
+#X obj 601 441 bng 15 250 50 0 +5 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 601 457 bng 15 250 50 0 -5 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 623 476 vsl 15 80 0 1 0 1 SeqVol SeqVol6 empty 0 -9 0 10 -262130
+-1 -1 7900 1;
+#X floatatom 623 422 3 0 0 0 - seq6 SeqNote;
+#X obj 623 441 bng 15 250 50 0 +6 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 623 457 bng 15 250 50 0 -6 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 643 476 vsl 15 80 0 1 0 0 SeqVol SeqVol7 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 644 422 3 0 0 0 - seq7 SeqNote;
+#X obj 643 441 bng 15 250 50 0 +7 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 643 457 bng 15 250 50 0 -7 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 665 476 vsl 15 80 0 1 0 0 SeqVol SeqVol8 empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X floatatom 665 422 3 0 0 0 - seq8 SeqNote;
+#X obj 665 441 bng 15 250 50 0 +8 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 665 457 bng 15 250 50 0 -8 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 685 476 vsl 15 80 0 1 0 0 SeqVol SeqVol9 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 686 422 3 0 0 0 - seq9 SeqNote;
+#X obj 685 441 bng 15 250 50 0 +9 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 685 457 bng 15 250 50 0 -9 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 707 476 vsl 15 80 0 1 0 0 SeqVol SeqVol10 empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X floatatom 707 422 3 0 0 0 - seq10 SeqNote;
+#X obj 707 441 bng 15 250 50 0 +10 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 726 454 bng 15 250 50 0 -11 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 727 476 vsl 15 80 0 1 0 0 SeqVol SeqVol11 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 728 422 3 0 0 0 - seq11 SeqNote;
+#X obj 727 441 bng 15 250 50 0 +11 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 727 457 bng 15 250 50 0 0 empty empty 17 7 0 10 -262130 -1 -1
+;
+#X obj 749 476 vsl 15 80 0 1 0 0 SeqVol SeqVol12 empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X floatatom 749 422 3 0 0 0 - seq12 SeqNote;
+#X obj 749 441 bng 15 250 50 0 +12 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 749 457 bng 15 250 50 0 -12 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 769 476 vsl 15 80 0 1 0 0 SeqVol SeqVol13 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 770 422 3 0 0 0 - seq13 SeqNote;
+#X obj 769 441 bng 15 250 50 0 +13 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 769 457 bng 15 250 50 0 -13 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 791 476 vsl 15 80 0 1 0 1 SeqVol SeqVol14 empty 0 -9 0 10 -262130
+-1 -1 7900 1;
+#X floatatom 791 422 3 0 0 0 - seq14 SeqNote;
+#X obj 791 441 bng 15 250 50 0 +14 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 791 457 bng 15 250 50 0 -14 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 811 476 vsl 15 80 0 1 0 0 SeqVol SeqVol15 empty 0 -9 0 10 -204800
+-1 -1 0 1;
+#X floatatom 812 422 3 0 0 0 - seq15 SeqNote;
+#X obj 811 441 bng 15 250 50 0 +15 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 811 457 bng 15 250 50 0 -15 empty empty 17 7 0 10 -262130 -1
+-1;
+#X floatatom 837 541 5 0 0 0 - SeqVel -;
+#X obj 707 457 bng 15 250 50 0 -10 empty empty 17 7 0 10 -204800 -1
+-1;
+#X floatatom 881 541 5 0 0 0 - SeqNote -;
+#X text 833 524 Volume;
+#X text 878 524 Note;
+#X obj 891 507 tgl 15 1 retrigger empty empty 17 7 0 10 -4160 -1 -1
+0.419355 0.419355;
+#X text 873 487 retrigger;
+#X obj 882 455 knob 32 32 0 1 0 1 SeqGlides SeqGlider empty 0 -8 0
+8 -4160 -1 -1 0 1;
+#X text 882 438 Glide;
+#X text 839 512 + -;
+#X obj 500 374 hsl 330 15 1 16 0 0 Stepss Stepsr empty -2 -8 0 10 -204800
+-1 -1 8800 1;
+#X text 837 372 Steps;
+#X obj 4 484 bng 15 250 50 0 empty +1 empty 17 7 0 10 -262144 -1 -1
+;
+#X obj 29 484 bng 15 250 50 0 empty 0 empty 17 7 0 10 -262144 -1 -1
+;
+#X floatatom 54 481 3 0 0 0 - SeqVel0s -;
+#X floatatom 4 526 3 0 0 0 - - SeqNote0r;
+#X floatatom 79 525 3 0 0 0 - - SeqVel0r;
+#X floatatom 79 481 3 0 0 0 - - -;
+#X obj 111 480 bng 15 250 50 0 empty +1 empty 17 7 0 10 -262144 -1
+-1;
+#X obj 136 480 bng 15 250 50 0 empty 0 empty 17 7 0 10 -262144 -1 -1
+;
+#X floatatom 161 477 3 0 0 0 - SeqVel0s -;
+#X floatatom 111 522 3 0 0 0 - - SeqNote0r;
+#X floatatom 186 521 3 0 0 0 - - SeqVel0r;
+#X floatatom 186 477 3 0 0 0 - - -;
+#X obj -117 508 SequencerStep 1;
+#X obj 19 439 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 4 503 SequencerStep;
+#X obj 111 499 SequencerStep;
+#N canvas 625 306 447 300 aaa 1;
+#X obj 153 71 inlet;
+#X floatatom 153 95 5 0 0 0 - - -;
+#X obj 153 134 outlet;
+#X obj 216 84 loadbang;
+#X msg 222 110 \$1;
+#X msg 269 119 8;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X restore 308 636 pd aaa 3;
+#X floatatom 311 667 5 0 0 0 - - -;
+#X connect 1 0 27 0;
+#X connect 2 0 28 0;
+#X connect 3 0 29 0;
+#X connect 4 0 30 0;
+#X connect 5 0 31 0;
+#X connect 6 0 32 0;
+#X connect 7 0 33 0;
+#X connect 8 0 34 0;
+#X connect 9 0 35 0;
+#X connect 10 0 36 0;
+#X connect 11 0 37 0;
+#X connect 12 0 38 0;
+#X connect 13 0 39 0;
+#X connect 14 0 40 0;
+#X connect 15 0 41 0;
+#X connect 16 0 18 0;
+#X connect 17 0 42 0;
+#X connect 18 0 17 0;
+#X connect 18 1 1 0;
+#X connect 18 2 2 0;
+#X connect 18 3 3 0;
+#X connect 18 4 4 0;
+#X connect 18 5 5 0;
+#X connect 18 6 6 0;
+#X connect 18 7 7 0;
+#X connect 18 8 8 0;
+#X connect 18 9 9 0;
+#X connect 18 10 10 0;
+#X connect 18 11 11 0;
+#X connect 18 12 12 0;
+#X connect 18 13 13 0;
+#X connect 18 14 14 0;
+#X connect 18 15 15 0;
+#X connect 19 0 25 1;
+#X connect 20 0 26 0;
+#X connect 21 0 25 0;
+#X connect 22 0 20 2;
+#X connect 22 0 25 0;
+#X connect 23 0 50 0;
+#X connect 25 0 20 0;
+#X connect 26 0 16 0;
+#X connect 26 0 51 0;
+#X connect 26 0 119 0;
+#X connect 43 0 21 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X connect 46 1 23 0;
+#X connect 47 0 22 0;
+#X connect 48 0 47 1;
+#X connect 49 0 47 0;
+#X connect 50 0 19 0;
+#X connect 53 0 55 0;
+#X connect 54 0 55 1;
+#X connect 56 0 55 2;
+#X connect 59 0 220 0;
+#X connect 60 0 220 1;
+#X connect 61 0 220 2;
+#X connect 63 0 65 0;
+#X connect 64 0 26 1;
+#X connect 65 0 66 0;
+#X connect 65 1 64 0;
+#X connect 69 0 102 0;
+#X connect 70 0 102 0;
+#X connect 71 0 73 0;
+#X connect 72 0 70 1;
+#X connect 73 0 69 1;
+#X connect 76 0 77 0;
+#X connect 77 0 91 0;
+#X connect 78 0 109 0;
+#X connect 80 0 101 0;
+#X connect 81 0 101 1;
+#X connect 83 0 82 0;
+#X connect 84 0 87 0;
+#X connect 86 0 93 0;
+#X connect 87 0 86 0;
+#X connect 88 0 87 1;
+#X connect 88 0 86 1;
+#X connect 89 0 112 0;
+#X connect 92 0 88 0;
+#X connect 93 1 98 0;
+#X connect 94 0 98 0;
+#X connect 95 0 94 0;
+#X connect 96 0 93 1;
+#X connect 97 0 94 1;
+#X connect 101 0 83 0;
+#X connect 102 0 100 0;
+#X connect 102 0 110 0;
+#X connect 104 0 105 0;
+#X connect 105 0 103 0;
+#X connect 105 1 76 0;
+#X connect 107 0 108 0;
+#X connect 108 0 106 0;
+#X connect 108 1 78 0;
+#X connect 111 0 95 0;
+#X connect 112 0 117 0;
+#X connect 113 0 69 0;
+#X connect 114 0 112 1;
+#X connect 115 0 118 0;
+#X connect 116 0 70 0;
+#X connect 117 0 116 0;
+#X connect 118 0 117 1;
+#X connect 119 0 120 0;
+#X connect 119 0 221 0;
+#X connect 120 0 220 3;
+#X connect 208 0 222 0;
+#X connect 209 0 222 1;
+#X connect 210 0 222 2;
+#X connect 213 0 222 3;
+#X connect 214 0 223 0;
+#X connect 215 0 223 1;
+#X connect 216 0 223 2;
+#X connect 219 0 223 3;
+#X connect 220 0 62 0;
+#X connect 220 1 67 0;
+#X connect 222 0 211 0;
+#X connect 222 1 212 0;
+#X connect 223 0 217 0;
+#X connect 223 1 218 0;
+#X connect 224 0 225 0;

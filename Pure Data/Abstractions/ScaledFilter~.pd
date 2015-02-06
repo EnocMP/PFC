@@ -1,0 +1,112 @@
+#N canvas 65 115 804 581 10;
+#X obj 0 0 cnv 15 200 100 empty empty Filter_\$1 20 12 0 14 -175168
+-66577 0;
+#X obj 7 26 vradio 15 1 0 4 \$0FilterType \$0FilterTypeLoad empty 0
+-8 0 10 -232576 -1 -1 0;
+#X text 26 23 Low Pass;
+#X text 26 38 High Pass;
+#X text 26 54 Band Pass;
+#X text 25 70 Notch;
+#X obj 93 55 knob 32 32 0 1 0 0 \$0Cutoff \$0CutoffLoad empty 0 -8
+0 8 -262144 -1 -1 1500 1;
+#X text 89 36 Cutoff;
+#X obj 146 53 knob 32 32 0 1 0 0 \$0Ressonance \$0RessonanceLoad empty
+0 -8 0 8 -262144 -1 -1 0 1;
+#X text 132 34 Ressonance;
+#X obj 175 7 tgl 15 1 \$0On \$0OnLoad empty 17 7 0 10 -258113 -1 -1
+0.2903 0.2903;
+#X obj 135 324 svf~;
+#X obj 176 342 spigot~;
+#X obj 215 313 == 0;
+#X obj 253 342 spigot~;
+#X obj 335 341 spigot~;
+#X obj 404 340 spigot~;
+#X obj 362 311 == 2;
+#X obj 443 310 == 3;
+#X floatatom 41 210 10 0 0 0 - - -;
+#X obj 231 343 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 314 343 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 385 342 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 455 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 292 313 == 1;
+#X obj 194 160 pow 3;
+#X text 39 114 Note;
+#X obj 9 400 spigot~;
+#X obj 41 190 expr (20000-$f1)*$f2+$f1/2;
+#X obj 146 247 *~;
+#X obj 224 20 Save \$0FilterType;
+#X obj 224 40 Save \$0Cutoff;
+#X obj 224 59 Save \$0Ressonance;
+#X obj 224 78 Save \$0On;
+#X obj 48 334 r \$0On;
+#X obj 318 274 r \$0FilterType;
+#X obj 194 130 r \$0Cutoff;
+#X text 331 85 Outputs: 1- Output Signal;
+#X obj 156 283 r \$0Ressonance;
+#X text 265 211 Envelope;
+#X obj 116 161 b;
+#X obj 10 264 r~ FilterInput\$1;
+#X obj 41 133 r FilterNote\$1;
+#X obj 269 230 r~ FilterEnvelope\$1;
+#X floatatom 244 176 5 0 0 0 - - -;
+#X text 345 14 Inputs: 1-Input Signal 2-Note In 3-Envelope (default
+1);
+#X obj 477 169 loadbang;
+#X obj 477 192 f \$0;
+#X msg 477 213 \; \$1FilterTypeLoad 0 \; \$1CutoffLoad 0.5 \; \$1RessonanceLoad
+0.1;
+#X obj 48 381 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 48 358 == 0;
+#X obj 175 504 s~ FilterOutput\$1;
+#X obj 379 395 r \$0On;
+#X obj 379 418 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0.2903
+0.2903;
+#X obj 244 439 expr~ if($f2>0 \, $v1 \, 0);
+#X connect 11 0 12 0;
+#X connect 11 1 14 0;
+#X connect 11 2 15 0;
+#X connect 11 3 16 0;
+#X connect 12 1 54 0;
+#X connect 13 0 12 1;
+#X connect 13 0 20 0;
+#X connect 14 1 54 0;
+#X connect 15 1 54 0;
+#X connect 16 1 54 0;
+#X connect 17 0 15 1;
+#X connect 17 0 22 0;
+#X connect 18 0 16 1;
+#X connect 18 0 23 0;
+#X connect 19 0 29 0;
+#X connect 24 0 14 1;
+#X connect 24 0 21 0;
+#X connect 25 0 28 1;
+#X connect 27 1 51 0;
+#X connect 28 0 19 0;
+#X connect 29 0 11 1;
+#X connect 34 0 50 0;
+#X connect 35 0 24 0;
+#X connect 35 0 13 0;
+#X connect 35 0 17 0;
+#X connect 35 0 18 0;
+#X connect 36 0 25 0;
+#X connect 36 0 40 0;
+#X connect 36 0 44 0;
+#X connect 38 0 11 2;
+#X connect 40 0 28 0;
+#X connect 41 0 27 0;
+#X connect 41 0 11 0;
+#X connect 42 0 28 0;
+#X connect 43 0 29 1;
+#X connect 46 0 47 0;
+#X connect 47 0 48 0;
+#X connect 49 0 27 1;
+#X connect 50 0 49 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 1;
+#X connect 54 0 51 0;
+#X coords 0 -1 1 1 200 100 1 0 0;

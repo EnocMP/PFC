@@ -1,0 +1,13 @@
+#N canvas 581 171 450 300 10;
+#X obj 91 61 inlet~;
+#X obj 89 131 outlet~;
+#X obj 91 83 s~ DelayInLeft\$1;
+#X obj 90 104 r~ DelayOutLeft\$1;
+#X obj 207 61 inlet~;
+#X obj 205 131 outlet~;
+#X obj 207 83 s~ DelayInRight\$1;
+#X obj 206 104 r~ DelayOutRight\$1;
+#X connect 0 0 2 0;
+#X connect 3 0 1 0;
+#X connect 4 0 6 0;
+#X connect 7 0 5 0;

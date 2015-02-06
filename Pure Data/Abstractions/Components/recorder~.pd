@@ -1,0 +1,23 @@
+#N canvas 342 343 450 354 10;
+#X obj 115 282 writesf~ 2;
+#X msg 173 209 start;
+#X msg 239 210 stop;
+#X obj 63 246 inlet~;
+#X obj 191 251 inlet~;
+#X text 247 100 Recorder;
+#X obj 115 106 bng 15 250 50 0 empty empty Open_file 17 7 0 10 -260097
+-1 -1;
+#X obj 114 139 bng 15 250 50 0 empty empty REC 17 7 0 10 -258113 -1
+-1;
+#X obj 201 139 bng 15 250 50 0 empty empty Stop_rec 17 7 0 10 -4034
+-1 -1;
+#X msg 115 183 open a.wav;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 6 0 9 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 9 0 0 0;
+#X coords 0 -1 1 1 200 100 1 100 60;

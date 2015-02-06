@@ -1,0 +1,6 @@
+#N canvas 681 239 450 300 10;
+#X obj 136 78 r \$1;
+#X obj 136 104 save;
+#X obj 136 132 s \$1Load;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

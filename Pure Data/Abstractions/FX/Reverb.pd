@@ -1,0 +1,96 @@
+#N canvas 65 54 1215 746 10;
+#X obj 1 0 cnv 15 150 100 empty empty Reverb_\$1 20 12 0 14 -4032 -66577
+0;
+#X obj 29 52 knob 32 32 0 1 0 1 \$0DryWet \$0DryWetLoad empty 0 -8
+0 8 -262144 -1 -1 0 1;
+#X obj 85 53 knob 32 32 0 1 0 1 RevRoom1s RevRoom1r empty 0 -8 0 8
+-262144 -1 -1 0 1;
+#X obj 127 6 tgl 15 1 RevOn1s RevOn1r empty 17 7 0 10 -258113 -1 -1
+1 1;
+#X text 79 29 Room Size;
+#X obj 338 61 cnv 15 250 250 empty empty Reverb 20 12 0 14 -203904
+-66577 0;
+#X msg 372 217 wet \$1;
+#X msg 437 217 dry \$1;
+#X msg 486 216 roomsize \$1;
+#X obj 423 262 freeverb~;
+#X floatatom 372 190 5 0 0 0 - - -;
+#X floatatom 437 192 5 0 0 0 - - -;
+#X floatatom 486 189 5 0 0 0 - - -;
+#X text 634 227 Reverb;
+#X obj 328 286 cnv 15 350 200 empty empty Routing 20 12 0 14 -204786
+-66577 0;
+#X obj 346 364 spigot~;
+#X obj 409 365 spigot~;
+#X obj 395 409 +~;
+#X text 576 292 Toggle;
+#X obj 621 301 tgl 30 1 empty empty empty 17 7 0 10 -258113 -1 -1 1
+1;
+#X obj 483 361 spigot~;
+#X obj 546 362 spigot~;
+#X obj 532 406 +~;
+#X obj 375 140 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 474 124 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 485 166 pow 2;
+#X obj 407 174 expr 1-$f1;
+#X text 597 93 Implements a reverb using freeverb~ The three firsts
+inlets is one while the third inlet is the activation button;
+#X floatatom 343 111 5 0 0 0 - RevWet1s -;
+#X floatatom 343 78 5 0 0 0 - RevWet1s -;
+#X floatatom 376 111 5 0 0 0 - - -;
+#X obj 343 94 save;
+#X floatatom 476 98 5 0 0 0 - - RevRoom1r;
+#X floatatom 476 65 5 0 0 0 - RevRoom1s -;
+#X floatatom 509 98 5 0 0 0 - - -;
+#X obj 476 81 save;
+#X floatatom 606 273 5 0 0 0 - - RevOn1r;
+#X floatatom 606 240 5 0 0 0 - RevOn1s -;
+#X floatatom 639 273 5 0 0 0 - - -;
+#X obj 606 256 save;
+#X obj 396 432 s~ ReverbOutL;
+#X obj 531 433 s~ ReverbOutR;
+#X obj 343 244 r~ ReverbInL;
+#X obj 503 240 r~ ReverbInR;
+#X text 26 31 Dry/Wet;
+#X obj 267 -59;
+#X connect 6 0 9 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 16 0;
+#X connect 9 1 20 0;
+#X connect 10 0 6 0;
+#X connect 11 0 7 0;
+#X connect 12 0 8 0;
+#X connect 15 0 17 0;
+#X connect 16 1 17 1;
+#X connect 17 0 40 0;
+#X connect 19 0 21 1;
+#X connect 19 0 20 1;
+#X connect 19 0 16 1;
+#X connect 19 0 15 1;
+#X connect 20 1 22 0;
+#X connect 21 0 22 1;
+#X connect 22 0 41 0;
+#X connect 23 0 26 0;
+#X connect 23 0 10 0;
+#X connect 24 0 25 0;
+#X connect 25 0 12 0;
+#X connect 26 0 11 0;
+#X connect 29 0 31 0;
+#X connect 30 0 23 0;
+#X connect 31 1 30 0;
+#X connect 33 0 35 0;
+#X connect 34 0 24 0;
+#X connect 35 0 32 0;
+#X connect 35 1 34 0;
+#X connect 37 0 39 0;
+#X connect 38 0 19 0;
+#X connect 39 0 36 0;
+#X connect 39 1 38 0;
+#X connect 42 0 9 0;
+#X connect 42 0 15 0;
+#X connect 43 0 9 1;
+#X connect 43 0 21 0;
+#X coords 0 -1 1 1 150 100 1 0 0;

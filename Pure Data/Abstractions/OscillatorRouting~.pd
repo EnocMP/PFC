@@ -1,0 +1,17 @@
+#N canvas 772 238 450 300 10;
+#X obj 181 65 inlet~;
+#X obj 61 64 inlet;
+#X obj 61 119 +~;
+#X obj 61 146 s~ FrequencyIn\$1;
+#X text 29 43 Central Frequency;
+#X text 147 45 FM Modulation Input;
+#X obj 105 221 outlet~;
+#X obj 106 196 r~ OscillatorOut\$1;
+#X obj 172 95 hip~ 50;
+#X obj 164 121 *~ 3000;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 2 1;

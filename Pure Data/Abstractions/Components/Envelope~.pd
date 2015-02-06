@@ -1,0 +1,98 @@
+#N canvas 65 54 1215 746 10;
+#X floatatom 213 262 5 0 0 0 - - -;
+#X floatatom 258 261 5 0 0 0 - - -;
+#X floatatom 305 259 5 0 0 0 - - -;
+#X floatatom 356 259 5 0 0 0 - - -;
+#X obj 213 198 pow 2;
+#X obj 213 218 * 1990;
+#X obj 213 239 + 10;
+#X obj 258 221 * 1990;
+#X obj 258 242 + 10;
+#X obj 356 198 pow 2;
+#X obj 356 218 * 1990;
+#X obj 356 239 + 10;
+#X obj 453 217 + 0.25;
+#X obj 453 196 * 3.75;
+#X floatatom 453 242 5 0 0 0 - - -;
+#X obj 453 172 pow 2;
+#X obj 260 300 adsr~ 1000;
+#X obj 526 277 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 258 201 pow 2;
+#X obj 305 199 pow 2;
+#X obj 0 0 cnv 15 150 100 empty \$0ChangeColor Envelope_\$1 20 7 0
+14 -24198 -33289 0;
+#X obj 12 25 vsl 10 60 0 1 0 0 \$0Attack \$0AttackLoad empty 0 -9 0
+10 -4032 -1 -1 3300 1;
+#X obj 26 25 vsl 10 60 0 1 0 0 \$0Decay \$0DecayLoad empty 0 -9 0 10
+-204800 -1 -1 3500 1;
+#X obj 41 25 vsl 10 60 0 1 0 0 \$0Sustain \$0SustainLoad empty 0 -9
+0 10 -4032 -1 -1 0 1;
+#X obj 55 25 vsl 10 60 0 1 0 0 \$0Release \$0ReleaseLoad empty 0 -9
+0 10 -204800 -1 -1 0 1;
+#X text 12 84 A;
+#X text 25 84 D;
+#X text 41 84 S;
+#X text 54 84 R;
+#X obj 92 45 knob 32 32 0 1 0 0 \$0Slope \$0SlopeLoad empty 0 -8 0
+8 -262144 -1 -1 1550 1;
+#X text 91 74 slope;
+#X obj 126 11 tgl 15 1 \$0On \$0OnLoad empty 17 7 0 10 -258113 -1 -1
+0 1;
+#X obj 213 108 r \$0Attack;
+#X obj 258 130 r \$0Decay;
+#X obj 453 132 r \$0Slope;
+#X obj 528 109 r \$0On;
+#X obj 320 1 Save \$0Attack;
+#X obj 320 102 Save \$0On;
+#X obj 320 83 Save \$0Slope;
+#X obj 320 63 Save \$0Release;
+#X obj 321 43 Save \$0Sustain;
+#X obj 320 22 Save \$0Decay;
+#X obj 304 153 r \$0Sustain;
+#X obj 620 283 s \$0ChangeColor;
+#X msg 620 255 color \$1 12 12;
+#X obj 620 222 + 13;
+#X obj 620 174 loadbang;
+#X obj 620 200 f \$1;
+#X obj 261 382 s~ Envelope\$1;
+#X obj 357 174 r \$0Release;
+#X obj 73 284 r EnvelopeTrigger\$1;
+#X obj 770 203 loadbang;
+#X obj 770 226 f \$0;
+#X msg 770 247 \; \$1AttackLoad 0 \; \$1DecayLoad 0 \; \$1SustainLoad
+1 \; \$1ReleaseLoad 0 \; \$1SlopeLoad 0.5 \; \$1OnLoad 1 \;;
+#X connect 0 0 16 1;
+#X connect 1 0 16 2;
+#X connect 2 0 16 3;
+#X connect 3 0 16 4;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 14 0 16 5;
+#X connect 15 0 13 0;
+#X connect 16 0 48 0;
+#X connect 17 0 16 6;
+#X connect 18 0 7 0;
+#X connect 19 0 2 0;
+#X connect 32 0 4 0;
+#X connect 33 0 18 0;
+#X connect 34 0 15 0;
+#X connect 35 0 17 0;
+#X connect 42 0 19 0;
+#X connect 44 0 43 0;
+#X connect 45 0 44 0;
+#X connect 46 0 47 0;
+#X connect 47 0 45 0;
+#X connect 49 0 9 0;
+#X connect 50 0 16 0;
+#X connect 51 0 52 0;
+#X connect 52 0 53 0;
+#X coords 0 -1 1 1 150 100 1 0 0;

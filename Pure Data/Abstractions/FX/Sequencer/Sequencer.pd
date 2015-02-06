@@ -1,0 +1,311 @@
+#N canvas 65 54 1215 746 10;
+#X obj -213 7 cnv 15 270 380 empty empty Sequencer_Control 20 12 0
+14 -180205 -66577 0;
+#X floatatom -174 307 5 0 0 0 - - -;
+#X floatatom -147 142 5 0 0 0 - - -;
+#X obj -174 230 counter;
+#X obj -208 193 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -97 215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -185 23 Rate;
+#X obj -174 208 metro;
+#X obj -174 255 % 16;
+#X obj -97 192 spigot;
+#X obj -147 117 expr 450*(1-$f1) + 50;
+#X obj -75 238 i;
+#X text 567 28 Usage: Call it with a number. This number will be the
+abstraction identifier;
+#X obj 70 0 cnv 15 450 200 empty empty Sequencer_\$1 20 10 0 14 -233017
+-66577 0;
+#X obj 82 41 hradio 21 1 0 16 empty \$0radio empty 0 -8 0 10 -262130
+-1 -1 4;
+#X obj 445 58 knob 32 32 0 1 0 0 \$0Rate \$0RateLoad empty 0 -8 0 8
+-4160 -1 -1 1200 1;
+#X obj 502 3 tgl 15 0 \$0On \$0OnLoad empty 17 7 0 10 -258113 -1 -1
+0 1;
+#X text 446 41 Rate;
+#X obj 472 109 knob 32 32 0 1 0 0 \$0JumpTime \$0JumpTimeLoad empty
+0 -8 0 8 -4160 -1 -1 0 1;
+#X text 461 92 Jump Time;
+#X floatatom 423 180 5 0 0 0 - SeqVel#1 -;
+#X floatatom 467 180 5 0 0 0 - SeqNote#1 -;
+#X text 419 163 Volume;
+#X text 464 163 Note;
+#X obj 428 150 tgl 15 0 \$0retrigger empty empty 17 7 0 10 -4160 -1
+-1 0 0.419355;
+#X text 449 147 retrigger;
+#X obj 424 110 knob 32 32 0 1 0 0 \$0Glide \$0GlideLoad empty 0 -8
+0 8 -4160 -1 -1 0 1;
+#X text 424 93 Glide;
+#X obj 85 25 hsl 330 15 1 16 0 1 \$0Steps \$0StepsLoad empty -2 -8
+0 10 -204800 -1 -1 10500 1;
+#X text 421 24 Steps;
+#X obj 83 115 vsl 15 80 0 1 0 0 SeqVel0\$1 SeqVel0\$1Load empty 0 -9
+0 10 -159808 -1 -1 6700 1;
+#X obj 103 115 vsl 15 80 0 1 0 0 SeqVel1\$1 SeqVel1\$1Load empty 0
+-9 0 10 -204800 -1 -1 0 1;
+#X obj 125 116 vsl 15 80 0 1 0 0 SeqVel2\$1 SeqVel2\$1Load empty 0
+-9 0 10 -262130 -1 -1 6600 1;
+#X obj 145 115 vsl 15 80 0 1 0 0 SeqVel3\$1 SeqVel3\$1Load empty 0
+-9 0 10 -261234 -1 -1 0 1;
+#X obj 167 115 vsl 15 80 0 1 0 0 SeqVel4\$1 SeqVel4\$1Load empty 0
+-9 0 10 -159808 -1 -1 0 1;
+#X obj 187 115 vsl 15 80 0 1 0 0 SeqVel5\$1 SeqVel5\$1Load empty 0
+-9 0 10 -204800 -1 -1 6300 1;
+#X obj 209 115 vsl 15 80 0 1 0 0 SeqVel6\$1 SeqVel6\$1Load empty 0
+-9 0 10 -262130 -1 -1 6100 1;
+#X obj 229 115 vsl 15 80 0 1 0 0 SeqVel7\$1 SeqVel7\$1Load empty 0
+-9 0 10 -261234 -1 -1 5500 1;
+#X obj 251 115 vsl 15 80 0 1 0 0 SeqVel8\$1 SeqVel8\$1Load empty 0
+-9 0 10 -159808 -1 -1 6800 1;
+#X obj 271 115 vsl 15 80 0 1 0 0 SeqVel9\$1 SeqVel9\$1Load empty 0
+-9 0 10 -204800 -1 -1 0 1;
+#X obj 293 115 vsl 15 80 0 1 0 0 SeqVel10\$1 SeqVel10\$1Load empty
+0 -9 0 10 -262130 -1 -1 0 1;
+#X obj 313 115 vsl 15 80 0 1 0 0 SeqVel11\$1 SeqVel11\$1Load empty
+0 -9 0 10 -261234 -1 -1 0 1;
+#X obj 335 115 vsl 15 80 0 1 0 0 SeqVel12\$1 SeqVel12\$1Load empty
+0 -9 0 10 -159808 -1 -1 0 1;
+#X obj 355 115 vsl 15 80 0 1 0 0 SeqVel13\$1 SeqVel13\$1Load empty
+0 -9 0 10 -204800 -1 -1 0 1;
+#X obj 377 115 vsl 15 80 0 1 0 0 SeqVel14\$1 SeqVel14\$1Load empty
+0 -9 0 10 -262130 -1 -1 0 1;
+#X obj 397 115 vsl 15 80 0 1 0 0 SeqVel15\$1 SeqVel15\$1Load empty
+0 -9 0 10 -261234 -1 -1 0 1;
+#X obj 83 80 bng 15 250 50 0 +0\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 83 96 bng 15 250 50 0 -0\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 103 80 bng 15 250 50 0 +1\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 103 96 bng 15 250 50 0 -1\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 125 80 bng 15 250 50 0 +2\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 125 96 bng 15 250 50 0 -2\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 145 80 bng 15 250 50 0 +3\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 145 96 bng 15 250 50 0 -3\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 167 80 bng 15 250 50 0 +4\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 167 96 bng 15 250 50 0 -4\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 187 80 bng 15 250 50 0 +5\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 187 96 bng 15 250 50 0 -5\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 209 80 bng 15 250 50 0 +6\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 209 96 bng 15 250 50 0 -6\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 229 80 bng 15 250 50 0 +7\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 229 96 bng 15 250 50 0 -7\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 251 80 bng 15 250 50 0 +8\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 251 96 bng 15 250 50 0 -8\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 271 80 bng 15 250 50 0 +9\$1 empty empty 17 7 0 10 -204800 -1
+-1;
+#X obj 271 96 bng 15 250 50 0 -9\$1 empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 293 80 bng 15 250 50 0 +10\$1 empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 312 93 bng 15 250 50 0 -11\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 313 80 bng 15 250 50 0 +11\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 313 96 bng 15 250 50 0 0 empty empty 17 7 0 10 -262130 -1 -1
+;
+#X obj 335 80 bng 15 250 50 0 +12\$1 empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 335 96 bng 15 250 50 0 -12\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 355 80 bng 15 250 50 0 +13\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 355 96 bng 15 250 50 0 -13\$1 empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 377 80 bng 15 250 50 0 +14\$1 empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 377 96 bng 15 250 50 0 -14\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 397 80 bng 15 250 50 0 +15\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj 397 96 bng 15 250 50 0 -15\$1 empty empty 17 7 0 10 -262130
+-1 -1;
+#X obj 293 96 bng 15 250 50 0 -10\$1 empty empty 17 7 0 10 -204800
+-1 -1;
+#X obj -174 327 s step\$1;
+#X floatatom 83 63 3 0 0 0 - SeqNote0#1 -;
+#X floatatom 104 63 3 0 0 0 - SeqNote1#1 -;
+#X floatatom 125 63 3 0 0 0 - SeqNote2#1 -;
+#X floatatom 146 63 3 0 0 0 - SeqNote3#1 -;
+#X floatatom 167 63 3 0 0 0 - SeqNote4#1 -;
+#X floatatom 188 63 3 0 0 0 - SeqNote5#1 -;
+#X floatatom 209 63 3 0 0 0 - SeqNote6#1 -;
+#X floatatom 230 63 3 0 0 0 - SeqNote7#1 -;
+#X floatatom 251 63 3 0 0 0 - SeqNote8#1 -;
+#X floatatom 272 63 3 0 0 0 - SeqNote9#1 -;
+#X floatatom 293 63 3 0 0 0 - SeqNote10#1 -;
+#X floatatom 314 63 3 0 0 0 - SeqNote11#1 -;
+#X floatatom 335 63 3 0 0 0 - SeqNote12#1 -;
+#X floatatom 356 63 3 0 0 0 - SeqNote13#1 -;
+#X floatatom 377 63 3 0 0 0 - SeqNote14#1 -;
+#X floatatom 398 63 3 0 0 0 - SeqNote15#1 -;
+#X obj -108 527 spigot;
+#X obj 29 572 spigot;
+#X obj -73 505 != 1;
+#X obj 312 443 pack;
+#X obj 363 426 expr $f1*500+10;
+#X obj 29 458 +;
+#X obj 29 482 pack;
+#X obj 109 465 expr $f1*400;
+#X obj -108 458 r NoteIn\$1;
+#X obj 730 157 Save \$0Rate;
+#X obj 730 177 Save \$0Glide;
+#X obj 729 137 Save \$0JumpTime;
+#X obj 730 196 Save \$0retrigger;
+#X obj -64 170 r \$0retrigger;
+#X obj 730 216 Save \$0On;
+#X obj -208 114 r \$0On;
+#X obj -147 80 r \$0Rate;
+#X text 571 268 SequencerStep Stores \, saves \, receives and sends
+information of each step (velocity and pitch).;
+#X obj -73 482 r \$0On;
+#X obj 44 432 r NoteIn\$1;
+#X obj -108 597 s SeqNoteOut\$1;
+#X floatatom -108 483 5 0 0 0 - - -;
+#X obj 62 550 r \$0On;
+#X obj -97 296 s \$0radio;
+#X obj 29 530 line 0 10;
+#X obj 29 407 r SeqNote\$1;
+#X floatatom -10 443 5 0 0 0 - - -;
+#X obj 730 236 Save \$0Steps;
+#X obj -75 214 r \$0Steps;
+#X obj 76 260 SequencerStep 0 \$1;
+#X obj 312 369 r SeqVel\$1;
+#X text 593 114 Outputs : - SeqNoteOut\$1 - - SeqVelout\$1;
+#X text 594 81 Inputs : - NoteIn\$1 - VelIn\$1;
+#X obj 363 393 r \$0JumpTime;
+#X obj 389 460 r VelIn\$1;
+#X obj 109 442 r \$0Glide;
+#X obj -98 146 r NoteIn\$1;
+#X obj 843 389 f \$0;
+#X msg 843 417 \; \$1RateLoad 0.4 \; \$1GlideLoad 0 \; \$1JumpTimeLoad
+0 \; \$1StepsLoad 8.6 \; \$1OnLoad 1;
+#X obj 719 350 loadbang;
+#X msg 719 407 \; SeqVel0\$1r 0.6 \; SeqVel1\$1r 0.6 \; SeqVel2\$1r
+0.6 \; SeqVel3\$1r 0.6 \; SeqVel4\$1r 0.6 \; SeqVel5\$1r 0.6 \; SeqVel6\$1r
+0.6 \; SeqVel7\$1r 0.6 \; SeqVel8\$1r 0.6 \; SeqVel9\$1r 0.6 \; SeqVel10\$1r
+0.6 \; SeqVel11\$1r 0.6 \; SeqVel12\$1r 0.6 \; SeqVel13\$1r 0.6 \;
+SeqVel14\$1r 0.6 \; SeqVel15\$1r 0.6;
+#X obj 719 385 f \$1;
+#X obj 132 562 s noteOn;
+#X obj 132 526 spigot;
+#X obj 165 506 r \$0On;
+#X floatatom 75 602 5 0 0 0 - - -;
+#X obj 89 577 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 241 402 != 0;
+#X floatatom 241 427 5 0 0 0 - - -;
+#X obj 240 368 r NoteIn\$1;
+#X obj 311 418 *;
+#X obj 312 463 line 0 0;
+#X obj 352 570 s SeqVelOut\$1;
+#X obj 312 541 spigot;
+#X obj 372 536 spigot;
+#X obj 405 488 r \$0On;
+#X obj 405 511 == 0;
+#X obj 338 512 r \$0On;
+#X floatatom 323 591 5 0 0 0 - - -;
+#X floatatom 276 484 5 0 0 0 - - -;
+#X obj 319 259 SequencerStep 2 \$1;
+#X obj 196 261 SequencerStep 1 \$1;
+#X obj 75 324 SequencerStep 12 \$1;
+#X obj 444 257 SequencerStep 3 \$1;
+#X obj 76 281 SequencerStep 4 \$1;
+#X obj 195 282 SequencerStep 5 \$1;
+#X obj 320 281 SequencerStep 6 \$1;
+#X obj 445 278 SequencerStep 7 \$1;
+#X obj 76 303 SequencerStep 8 \$1;
+#X obj 195 303 SequencerStep 9 \$1;
+#X obj 321 303 SequencerStep 10 \$1;
+#X obj 445 300 SequencerStep 11 \$1;
+#X obj 196 324 SequencerStep 13 \$1;
+#X obj 321 323 SequencerStep 14 \$1;
+#X obj 445 322 SequencerStep 15 \$1;
+#X obj 508 510 r noteOn;
+#X obj 569 511 r noteOff;
+#X msg 566 538 0;
+#X msg 519 543 1;
+#X floatatom 543 571 5 0 0 0 - - -;
+#X obj 253 600 select 0;
+#X obj 240 647 s noteOff;
+#X connect 1 0 79 0;
+#X connect 2 0 7 1;
+#X connect 3 0 8 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 2;
+#X connect 5 0 7 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 8 0 119 0;
+#X connect 9 0 5 0;
+#X connect 10 0 2 0;
+#X connect 11 0 8 1;
+#X connect 96 0 116 0;
+#X connect 97 0 116 0;
+#X connect 97 0 141 0;
+#X connect 98 0 96 1;
+#X connect 99 0 147 0;
+#X connect 100 0 99 1;
+#X connect 100 0 147 1;
+#X connect 101 0 102 0;
+#X connect 102 0 120 0;
+#X connect 102 0 139 0;
+#X connect 103 0 102 1;
+#X connect 104 0 117 0;
+#X connect 109 0 9 1;
+#X connect 111 0 4 0;
+#X connect 112 0 10 0;
+#X connect 114 0 98 0;
+#X connect 115 0 101 1;
+#X connect 117 0 96 0;
+#X connect 118 0 97 1;
+#X connect 118 0 142 0;
+#X connect 120 0 97 0;
+#X connect 121 0 101 0;
+#X connect 121 0 122 0;
+#X connect 124 0 11 0;
+#X connect 126 0 146 0;
+#X connect 126 0 155 0;
+#X connect 126 0 149 0;
+#X connect 129 0 100 0;
+#X connect 130 0 150 0;
+#X connect 131 0 103 0;
+#X connect 132 0 9 0;
+#X connect 133 0 134 0;
+#X connect 135 0 137 0;
+#X connect 135 0 133 0;
+#X connect 137 0 136 0;
+#X connect 139 0 138 0;
+#X connect 140 0 139 1;
+#X connect 143 0 144 0;
+#X connect 144 0 146 1;
+#X connect 145 0 143 0;
+#X connect 146 0 99 0;
+#X connect 149 0 148 0;
+#X connect 149 0 176 0;
+#X connect 150 0 148 0;
+#X connect 151 0 152 0;
+#X connect 152 0 150 1;
+#X connect 153 0 149 1;
+#X connect 171 0 174 0;
+#X connect 173 0 175 0;
+#X connect 174 0 175 0;
+#X connect 176 0 177 0;
+#X coords 0 -1 1 1 450 200 1 70 0;

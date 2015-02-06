@@ -1,0 +1,49 @@
+#N canvas 65 111 698 621 10;
+#X obj 56 10 Sequencer 1;
+#X obj 545 34 cnv 15 130 100 empty empty Preset_Bank 20 12 0 14 -204786
+-66577 0;
+#X obj 555 94 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 586 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 555 117 PresetManagement;
+#X obj 646 57 vradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 550 77 Save;
+#X text 580 76 Load;
+#X obj 465 365 s NoteIn1;
+#X obj 66 284 r SeqNoteOut1;
+#X floatatom 66 315 5 0 0 0 - - -;
+#X obj 41 317 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 546 373 s VelIn1;
+#X msg 450 309 50 0.5;
+#X msg 502 310 55 1;
+#X msg 555 308 60 0.87;
+#X obj 502 339 unpack;
+#X obj 67 343 phasor~;
+#X obj 93 413 output~;
+#X obj 98 385 lop~ 2000;
+#X obj 228 331 r~ SeqVelOut1;
+#X obj 140 360 *~;
+#X obj 244 383 snapshot~;
+#X floatatom 244 412 5 0 0 0 - - -;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 4 2;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 17 0;
+#X connect 11 0 22 0;
+#X connect 13 0 16 0;
+#X connect 14 0 16 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 0;
+#X connect 16 1 12 0;
+#X connect 17 0 21 0;
+#X connect 19 0 18 0;
+#X connect 19 0 18 1;
+#X connect 20 0 21 1;
+#X connect 20 0 22 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 0;

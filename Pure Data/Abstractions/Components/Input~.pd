@@ -1,0 +1,68 @@
+#N canvas 65 54 1215 746 10;
+#X msg 108 209 50 0.7;
+#X msg 135 231 55 0.5;
+#X msg 162 256 60 0.3;
+#X msg 194 283 0 0;
+#X obj 100 100 cnv 15 200 100 empty empty Input 20 12 0 14 -233017
+-66577 0;
+#X obj 443 121 unpack;
+#X floatatom 443 149 5 0 0 0 - - -;
+#X floatatom 476 149 5 0 0 0 - - -;
+#X text 510 148 Velocity;
+#X text 409 148 Tone;
+#X obj 443 339 mtof;
+#X obj 443 368 s tones;
+#X floatatom 443 313 5 0 0 0 - - -;
+#X obj 443 290 line 100 10;
+#X obj 443 264 pack;
+#X obj 252 151 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
+-1 -1 0 1;
+#X obj 252 206 * 1000;
+#X floatatom 252 227 5 0 0 0 - - -;
+#X text 252 129 glide;
+#X obj 477 171 s~ velocityIn;
+#X obj 252 250 s \$0glide;
+#X obj 464 199 r \$0glide;
+#X obj 108 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 135 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 162 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 194 168 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 109 151 I;
+#X text 133 150 IV;
+#X text 157 150 VII;
+#X text 189 150 Off;
+#X text 121 134 Test Tones;
+#X obj 108 313 s \$0testTones;
+#X obj 443 97 r \$0testTones;
+#X obj 211 340 s kp;
+#X obj 254 341 s kr;
+#X connect 0 0 31 0;
+#X connect 0 0 33 0;
+#X connect 1 0 31 0;
+#X connect 1 0 33 0;
+#X connect 2 0 31 0;
+#X connect 2 0 33 0;
+#X connect 3 0 31 0;
+#X connect 3 0 34 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 6 0 14 0;
+#X connect 7 0 19 0;
+#X connect 10 0 11 0;
+#X connect 12 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 20 0;
+#X connect 21 0 14 1;
+#X connect 22 0 0 0;
+#X connect 23 0 1 0;
+#X connect 24 0 2 0;
+#X connect 25 0 3 0;
+#X connect 32 0 5 0;
+#X coords 0 -1 1 1 200 100 1 100 100;
